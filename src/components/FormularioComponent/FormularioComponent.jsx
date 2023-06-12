@@ -1,6 +1,6 @@
 import { firestore } from "@/firebase/clientApp";
 import { addDoc, collection } from "firebase/firestore";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
@@ -13,7 +13,10 @@ import SectionEstablecimiento from "./sections/section-establecimiento";
 import SectionGeo from "./sections/section-geolocalizacion";
 
 export default function FormularioComponent({ user }) {
-	const [localData, setLocalData] = useState(getLocalSaves());
+	const [localData, setLocalData] = useState({});
+	useEffect(() => {
+		setLocalData(getLocalSaves());
+	}, []);
 
 	async function handleLocalDataTransfer() {
 		let localSaves = getLocalSaves();
