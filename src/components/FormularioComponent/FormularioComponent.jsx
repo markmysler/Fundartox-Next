@@ -11,6 +11,9 @@ import {
 import SectionDatosPersonales from "./sections/section-datos-personales";
 import SectionEstablecimiento from "./sections/section-establecimiento";
 import SectionGeo from "./sections/section-geolocalizacion";
+import SectionCondicionSalud from "./sections/section-condicion-salud";
+import SectionIngresoPaciente from "./sections/section-ingreso-paciente";
+import style from "./form.module.css";
 
 export default function FormularioComponent({ user }) {
 	const [localData, setLocalData] = useState({});
@@ -82,13 +85,19 @@ export default function FormularioComponent({ user }) {
 
 	return (
 		<>
-			<form id="user-form" onSubmit={(e) => handleSubmit(e)}>
+			<form
+				id="user-form"
+				onSubmit={(e) => handleSubmit(e)}
+				className={style.userForm}
+			>
 				<h1>Formulario</h1>
 				<SectionGeo />
 				<SectionEstablecimiento />
 				<SectionDatosPersonales />
+				<SectionCondicionSalud />
+				<SectionIngresoPaciente />
 
-				<div className="botones-form">
+				<div className={style.botonesForm}>
 					<button type="submit">Enviar formulario</button>
 					{localData.length > 0 && (
 						<button onClick={handleLocalDataTransfer}>
