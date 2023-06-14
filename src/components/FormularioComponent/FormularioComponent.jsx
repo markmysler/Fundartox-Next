@@ -14,6 +14,7 @@ import SectionGeo from "./sections/section-geolocalizacion";
 import SectionCondicionSalud from "./sections/section-condicion-salud";
 import SectionIngresoPaciente from "./sections/section-ingreso-paciente";
 import style from "./form.module.css";
+import addMultipleSelectOptions from "@/app-functions/addMultipleSelectOptions";
 
 export default function FormularioComponent({ user }) {
 	const [localData, setLocalData] = useState({});
@@ -50,18 +51,27 @@ export default function FormularioComponent({ user }) {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		const selectedOptions = addMultipleSelectOptions();
 		let inputList = [];
 		for (let i = 0; i < e.target.length - 1; i++) {
 			const element = e.target[i];
-			inputList.push([element.id, element.value]);
+			const Q = element.id;
+			const A = element.value;
+			inputList.push({ Q, A });
 		}
-		if (!!inputList.find((item) => item[1] === "")) {
+		if (
+			!!inputList.find((item) => item["A"] === "") &&
+			inputList.find((item) => Array.isArray(item["A"]) === false)
+		) {
 			toast.error("Responder todas las preguntas antes de enviar");
 		} else {
+			if (selectedOptions.length > 1) {
+				inputList[inputList.length - 1]["A"] = selectedOptions;
+			}
 			try {
 				const postDocRef = await addDoc(
 					collection(firestore, "entries"),
-					inputList
+					{ ...inputList }
 				);
 				await addDoc(
 					collection(firestore, `users/${user.uid}/entries`),
