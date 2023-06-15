@@ -1,6 +1,13 @@
+import { useEffect } from "react";
 import style from "../form.module.css";
+import moment from "moment/moment";
 
 export default function SectionInicioEncuesta({ handleChange }) {
+	useEffect(() => {
+		const FHelement = document.getElementById("fechahora");
+		const date = moment().format("yyyy-MM-DDThh:mm");
+		FHelement.value = date;
+	}, []);
 	return (
 		<>
 			<section id="inicioEncuesta">
