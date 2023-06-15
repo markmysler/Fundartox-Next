@@ -65,8 +65,15 @@ export default function FormularioComponent({ user }) {
 		for (let i = 0; i < e.target.length - 1; i++) {
 			const element = e.target[i];
 			const Q = element.id;
-			const A = element.value;
-			inputList.push({ Q, A });
+			let A = element.value;
+			if (Q === A && Q !== "") {
+				if (element.checked) {
+					A = "Checked";
+					inputList.push({ Q, A });
+				}
+			} else if (Q !== "" && A !== "") {
+				inputList.push({ Q, A });
+			}
 		}
 		if (
 			!!inputList.find((item) => item["A"] === "") &&
@@ -75,7 +82,7 @@ export default function FormularioComponent({ user }) {
 			toast.error("Responder todas las preguntas antes de enviar");
 		} else {
 			if (selectedOptions.length > 1) {
-				inputList[inputList.length - 1]["A"] = selectedOptions;
+				inputList[22]["A"] = selectedOptions;
 			}
 			try {
 				const postDocRef = await addDoc(
@@ -90,6 +97,9 @@ export default function FormularioComponent({ user }) {
 				);
 
 				toast.success("Formulario enviado a DB");
+				setTimeout(() => {
+					location.reload();
+				}, 3000);
 			} catch (error) {
 				toast.error("Error enviando formulario, intente mas tarde");
 				toast.info("Guardando informacion localmente");
