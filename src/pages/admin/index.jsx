@@ -1,7 +1,10 @@
+import MainAdmin from "@/components/MainAdmin/MainAdmin";
+import { firestore } from "../../firebase/clientApp";
+
 export default function Admin() {
 	return (
 		<>
-			<h1>Admin view</h1>
+			<MainAdmin firestore={firestore} />
 		</>
 	);
 }
