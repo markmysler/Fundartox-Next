@@ -10,16 +10,25 @@ import {
 } from "../../app-functions/handleLocalStorage";
 import SectionDatosPersonales from "./sections/section-datos-personales";
 import SectionEstablecimiento from "./sections/section-establecimiento";
-import SectionGeo from "./sections/section-geolocalizacion";
 import SectionCondicionSalud from "./sections/section-condicion-salud";
 import SectionIngresoPaciente from "./sections/section-ingreso-paciente";
 import style from "./form.module.css";
 import addMultipleSelectOptions from "@/app-functions/addMultipleSelectOptions";
+import {
+	deleteIncompleteForm,
+	getIncompleteForm,
+	saveIncompleteForm,
+} from "@/app-functions/handleIncompleteForm";
+import Swal from "sweetalert2";
+import SectionInicioEncuesta from "./sections/section-inicio-encuesta";
+import SectionComsumoSustancias from "./sections/section-consumo-sustancias";
 
 export default function FormularioComponent({ user }) {
 	const [localData, setLocalData] = useState({});
+	let currentValues = {};
 	useEffect(() => {
 		setLocalData(getLocalSaves());
+		useIncompleteForm();
 	}, []);
 
 	async function handleLocalDataTransfer() {
@@ -93,6 +102,99 @@ export default function FormularioComponent({ user }) {
 		}
 	};
 
+	function useIncompleteForm() {
+		const incData = getIncompleteForm();
+		if (incData !== undefined) {
+			Swal.fire({
+				title: "Continuar formulario guardado?",
+				showDenyButton: true,
+				confirmButtonText: "Si",
+				denyButtonText: `Borrar`,
+			}).then((result) => {
+				if (result.isConfirmed) {
+					for (const key in incData) {
+						let campo = document.getElementById(key);
+						const isRadio = document.querySelectorAll(
+							'input[type="radio"]'
+						);
+						const radioElementList = [];
+						for (const key2 in isRadio) {
+							radioElementList.push(isRadio[key2].id);
+						}
+						const isCheckbox = document.querySelectorAll(
+							'input[type="checkbox"]'
+						);
+						const checkboxElementList = [];
+						for (const key3 in isCheckbox) {
+							if (
+								isCheckbox[key3].id !== "" &&
+								isCheckbox[key3].id !== undefined
+							) {
+								checkboxElementList.push(isCheckbox[key3].id);
+							}
+						}
+						const isMultiple =
+							document.querySelector("select[multiple]");
+						if (radioElementList.includes(key)) {
+							campo.checked = true;
+						} else if (checkboxElementList.includes(key)) {
+							campo.checked = true;
+						} else if (campo === isMultiple) {
+							const options = document.querySelectorAll(
+								"#diagnosticosPresuntivos option"
+							);
+
+							const optionElements = [];
+							for (const key5 in options) {
+								if (options[key5].id !== undefined) {
+									optionElements.push(options[key5]);
+								}
+							}
+							incData[key].forEach((i) => {
+								const selectedOptions2 = optionElements.find(
+									(item) => item.id === i
+								);
+								selectedOptions2.selected = true;
+							});
+						} else {
+							campo.value = incData[key];
+						}
+					}
+					Swal.fire("Datos recuperados!", "", "success");
+					deleteIncompleteForm();
+				} else if (result.isDenied) {
+					deleteIncompleteForm();
+					Swal.fire("Formulario incompleto borrado", "", "success");
+				}
+			});
+		}
+	}
+
+	function handleSaveIncompleteForm() {
+		if (Object.keys(currentValues).length !== 0) {
+			toast.info("Guardando...");
+			saveIncompleteForm(currentValues);
+			toast.success("Progreso guardado localmente");
+		} else {
+			toast.error("No es posible guardar un formulario vacio");
+		}
+	}
+
+	function handleChange(e) {
+		const inputID = e.target.id;
+		const inputValue = e.target.value;
+		const isMultiple = document.querySelector("select[multiple]");
+		if (inputID !== isMultiple.id) {
+			currentValues[inputID] = inputValue;
+		} else {
+			const selected = document.querySelectorAll(
+				"#diagnosticosPresuntivos option:checked"
+			);
+			const ids = Array.from(selected).map((el) => el.id);
+			currentValues[inputID] = ids;
+		}
+	}
+
 	return (
 		<>
 			<form
@@ -100,17 +202,23 @@ export default function FormularioComponent({ user }) {
 				onSubmit={(e) => handleSubmit(e)}
 				className={style.userForm}
 			>
-				<h1>Formulario</h1>
-				<SectionGeo />
-				<SectionEstablecimiento />
-				<SectionDatosPersonales />
-				<SectionCondicionSalud />
-				<SectionIngresoPaciente />
+				<h1 className={style.h1}>Encuesta de Relevamiento</h1>
+				<SectionInicioEncuesta handleChange={handleChange} />
+				<SectionEstablecimiento handleChange={handleChange} />
+				<SectionDatosPersonales handleChange={handleChange} />
+				<SectionCondicionSalud handleChange={handleChange} />
+				<SectionIngresoPaciente handleChange={handleChange} />
+				<SectionComsumoSustancias handleChange={handleChange} />
 
 				<div className={style.botonesForm}>
-					<button type="submit">Enviar formulario</button>
+					<button type="submit" className={style.btnEnviar}>
+						Enviar formulario
+					</button>
+					<button onClick={handleSaveIncompleteForm}>
+						Guardar progreso
+					</button>
 					{localData.length > 0 && (
-						<button onClick={handleLocalDataTransfer}>
+						<button onClick={() => handleLocalDataTransfer(e)}>
 							Subir informacion local
 						</button>
 					)}

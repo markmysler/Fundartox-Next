@@ -1,26 +1,27 @@
 import style from "../form.module.css";
 
-export default function SectionCondicionSalud() {
+export default function SectionCondicionSalud({ handleChange }) {
 	return (
 		<>
-			<section id="condicion-salud-paciente">
+			<section id="condicionSaludPaciente">
 				<h2 className={style.h2}>Condición de Salud del Paciente</h2>
 				<div>
 					<h3 className={style.h3}>
 						¿Toma alguna medicación recetada?
 					</h3>
-					<div>
+					<div className={style.divPreguntaRadio}>
 						<div className={style.divDosRadio}>
 							<input
 								className={style.inputRadio}
-								name="medicacion-resetada"
+								name="medicacionResetada"
 								value="si"
 								type="radio"
-								id="medicacion-recetada-si"
+								id="medicacionRecetadaSi"
+								onChange={(e) => handleChange(e)}
 							/>
 							<label
 								className={style.label}
-								htmlFor="medicacion-recetada-si"
+								htmlFor="medicacionRecetadaSi"
 							>
 								Sí
 							</label>
@@ -28,32 +29,34 @@ export default function SectionCondicionSalud() {
 						<div className={style.divDosRadio}>
 							<input
 								className={style.inputRadio}
-								name="medicacion-resetada"
+								name="medicacionResetada"
 								value="no"
 								type="radio"
-								id="medicacion-recetada-no"
+								id="medicacionRecetadaNo"
+								onChange={(e) => handleChange(e)}
 							/>
 							<label
 								className={style.label}
-								htmlFor="medicacion-recetada-no"
+								htmlFor="medicacionRecetadaNo"
 							>
 								No
 							</label>
 						</div>
 					</div>
 					<h3 className={style.h3}>¿Toma algún psicofarmaco?</h3>
-					<div>
+					<div className={style.divPreguntaRadio}>
 						<div className={style.divDosRadio}>
 							<input
 								className={style.inputRadio}
 								name="psicofarmaco"
 								value="si"
 								type="radio"
-								id="psicofarmaco-si"
+								id="psicofarmacoSi"
+								onChange={(e) => handleChange(e)}
 							/>
 							<label
 								className={style.label}
-								htmlFor="psicofarmaco-si"
+								htmlFor="psicofarmacoSi"
 							>
 								Sí
 							</label>
@@ -64,11 +67,12 @@ export default function SectionCondicionSalud() {
 								name="psicofarmaco"
 								value="no"
 								type="radio"
-								id="psicofarmaco-no"
+								id="psicofarmacoNo"
+								onChange={(e) => handleChange(e)}
 							/>
 							<label
 								className={style.label}
-								htmlFor="psicofarmaco-no"
+								htmlFor="psicofarmacoNo"
 							>
 								No
 							</label>

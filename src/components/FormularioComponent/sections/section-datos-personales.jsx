@@ -1,142 +1,40 @@
 import style from "../form.module.css";
 
-export default function SectionDatosPersonales() {
+export default function SectionDatosPersonales({ handleChange }) {
 	return (
 		<>
-			<section id="datos-personales">
+			<section id="datosPersonales">
 				<h2 className={style.h2}>Datos personales</h2>
-				<h3 className={style.h3}>Nombre</h3>
-				<div className={style.dosDivsJuntos}>
-					<div>
-						<label
-							htmlFor="nombre"
-							className={[style.labelText, style.label]}
-						>
-							Nombre
-						</label>
-						<input
-							className={style.inputText}
-							type="text"
-							id="nombre"
-							required
-						/>
-					</div>
-					<div>
-						<label
-							htmlFor="apellido"
-							className={(style.labelText, style.label)}
-						>
-							Apellido
-						</label>
-						<input
-							className={style.inputText}
-							type="text"
-							id="apellido"
-							required
-						/>
-					</div>
-				</div>
-				<h3 className={style.h3}>Fecha de nacimiento</h3>
+				{/* <h3 className={style.h3}>Fecha de nacimiento</h3> */}
 				<div className={style.fechaNacimiento}>
-					<label
-						htmlFor="fecha-de-nacimiento"
-						className={(style.labelText, style.label)}
-					>
-						Fecha
-					</label>
 					<input
 						className={style.inputDate}
 						type="date"
-						id="fecha-de-nacimiento"
+						id="fechaDeNacimiento"
 						required
+						onChange={(e) => handleChange(e)}
 					/>
-				</div>
-				<h3 className={style.h3}>Dirección particular</h3>
-				<div className={style.divLargo}>
 					<label
-						htmlFor="direccion-linea-1"
-						className={(style.labelText, style.label)}
+						htmlFor="fechaDeNacimiento"
+						className={[style.labelText, style.label]}
 					>
-						Dirección de la calle
+						Fecha de nacimiento
 					</label>
-					<input
-						className={style.inputText}
-						type="text"
-						id="direccion-linea-1"
-						required
-					/>
-				</div>
-				<div className={style.divLargo}>
-					<label
-						htmlFor="direccion-linea-2"
-						className={(style.labelText, style.label)}
-					>
-						Dirección de la calle Linea 2
-					</label>
-					<input
-						className={style.inputText}
-						type="text"
-						id="direccion-linea-2"
-						required
-					/>
-				</div>
-				<div className={style.dosDivsJuntos}>
-					<div>
-						<label
-							htmlFor="ciudad"
-							className={(style.labelText, style.label)}
-						>
-							Ciudad
-						</label>
-						<input
-							className={style.inputText}
-							type="text"
-							id="ciudad"
-							required
-						/>
-					</div>
-					<div>
-						<label
-							htmlFor="estado-provincia"
-							className={(style.labelText, style.label)}
-						>
-							Estado / Provincia
-						</label>
-						<input
-							className={style.inputText}
-							type="text"
-							id="estado-provincia"
-							required
-						/>
-					</div>
-				</div>
-				<div className={style.divLargo}>
-					<label
-						htmlFor="codigo-postal"
-						className={(style.labelText, style.label)}
-					>
-						Código Postal
-					</label>
-					<input
-						className={style.inputText}
-						type="text"
-						id="codigo-postal"
-						required
-					/>
 				</div>
 				<div className={style.divSeparacion}>
 					<label
-						htmlFor="sexo"
+						htmlFor="genero"
 						className={(style.labelSelect, style.label)}
 					>
-						Sexo
+						Género
 					</label>
 					<div className={style.divSelect}>
 						<select
 							className={style.select}
-							id="sexo"
-							name="sexo"
+							id="genero"
+							name="genero"
 							required
+							onChange={(e) => handleChange(e)}
 						>
 							<option value="">Seleccione</option>
 							<option value="masculino">Masculino</option>
@@ -148,7 +46,7 @@ export default function SectionDatosPersonales() {
 				</div>
 				<div>
 					<label
-						htmlFor="situacion-conyugal"
+						htmlFor="situacionConyugal"
 						className={(style.labelSelect, style.label)}
 					>
 						Situación Conyugal
@@ -156,54 +54,56 @@ export default function SectionDatosPersonales() {
 					<div className={style.divSelect}>
 						<select
 							className={style.select}
-							id="situacion-conyugal"
-							name="situacion-conyugal"
+							id="situacionConyugal"
+							name="situacionConyugal"
 							required
+							onChange={(e) => handleChange(e)}
 						>
 							<option value="">Seleccione</option>
-							<option value="con-pareja">Con pareja</option>
-							<option value="sin-pareja">Sin pareja</option>
-							<option value="no-responde">No responde</option>
+							<option value="conPareja">Con pareja</option>
+							<option value="sinPareja">Sin pareja</option>
+							<option value="noResponde">No responde</option>
 						</select>
 					</div>
 				</div>
 				<div>
 					<label
-						htmlFor="nivel-educativo"
-						className={(style.labelSelect, style.label)}
+						htmlFor="nivelEducativo"
+						className={[style.labelSelect, style.label]}
 					>
 						Nivel Educativo
 					</label>
 					<div className={style.divSelect}>
 						<select
 							className={style.select}
-							id="nivel-educativo"
-							name="nivel-educativo"
+							id="nivelEducativo"
+							name="nivelEducativo"
 							required
+							onChange={(e) => handleChange(e)}
 						>
 							<option value="">Seleccione</option>
-							<option value="sin-instruccion">
+							<option value="sinInstruccion">
 								Sin instrucción (SI)
 							</option>
-							<option value="primaria-completa">
+							<option value="primariaCompleta">
 								Primaria Incompleta (PI)
 							</option>
-							<option value="primaria-incompleta">
+							<option value="primariaIncompleta">
 								Primaria Completa (PC)
 							</option>
-							<option value="secundaria-completa">
+							<option value="secundariaCompleta">
 								Secundaria Incompleta (SI)
 							</option>
-							<option value="secundaria-incompleta">
+							<option value="secundariaIncompleta">
 								Secundaria Completa (SC)
 							</option>
-							<option value="tu-incompleta">
+							<option value="tuIncompleta">
 								Terciaria o Universidad Incompleta (TUI)
 							</option>
-							<option value="tu-completa">
+							<option value="tuCompleta">
 								Terciaria o Universidad Completa (TUC)
 							</option>
-							<option value="nosabe-nocontesta">
+							<option value="nosabeNocontesta">
 								No sabe o no contesta (NSNC)
 							</option>
 						</select>
@@ -211,7 +111,7 @@ export default function SectionDatosPersonales() {
 				</div>
 				<div>
 					<label
-						htmlFor="situacion-laboral"
+						htmlFor="situacionLaboral"
 						className={(style.labelSelect, style.label)}
 					>
 						Situación Laboral
@@ -219,37 +119,38 @@ export default function SectionDatosPersonales() {
 					<div className={style.divSelect}>
 						<select
 							className={style.select}
-							id="situacion-laboral"
-							name="situacion-laboral"
+							id="situacionLaboral"
+							name="situacionLaboral"
 							required
+							onChange={(e) => handleChange(e)}
 						>
 							<option value="">Seleccione</option>
-							<option value="tiempo-completo">
+							<option value="tiempoCompleto">
 								Trabaja a tiempo completo (más de 35 horas)
 							</option>
-							<option value="tiempo-parcial">
+							<option value="tiempoParcial">
 								Trabaja a tiempo parcial (menos de 35 horas)
 							</option>
-							<option value="trabaja-esporadicamente">
+							<option value="trabajaEsporadicamente">
 								Trabaja esporádicamente
 							</option>
 							<option value="desempleado">Desempleado</option>
-							<option value="dedicado-al-estudio">
+							<option value="dedicadoAlEstudio">
 								Dedicado al estudio
 							</option>
-							<option value="notrabaja-nobusca">
+							<option value="notrabajaNobusca">
 								No trabaja y no busca trabajo
 							</option>
-							<option value="trabajador-familiar">
+							<option value="trabajadorFamiliar">
 								Trabajador familiar
 							</option>
-							<option value="jubilado-pensionado-rentista">
+							<option value="jubiladoPensionadoRentista">
 								Jubilado / pensionado / rentista
 							</option>
-							<option value="incapacitado-para-trabajar">
+							<option value="incapacitadoParaTrabajar">
 								Incapacitado para trabajar
 							</option>
-							<option value="nosabe-nocontesta">
+							<option value="nosabeNocontesta">
 								No sabe o no contesta (NSNC)
 							</option>
 						</select>
@@ -268,16 +169,17 @@ export default function SectionDatosPersonales() {
 							id="ocupacion"
 							name="ocupacion"
 							required
+							onChange={(e) => handleChange(e)}
 						>
 							<option value="">Seleccione</option>
-							<option value="como-propio">
+							<option value="comoPropio">
 								Para su propio negocio / empresa / actividad
 							</option>
-							<option value="como-empleado">
+							<option value="comoEmpleado">
 								Como obrero o empleado para un patrón / empresa
 								/ institución
 							</option>
-							<option value="como-servicio-domestico">
+							<option value="comoServicioDomestico">
 								Como servicio doméstico
 							</option>
 						</select>
@@ -285,7 +187,7 @@ export default function SectionDatosPersonales() {
 				</div>
 				<div>
 					<label
-						htmlFor="licencia-conducir"
+						htmlFor="licenciaConducir"
 						className={(style.labelSelect, style.label)}
 					>
 						¿Tiene licencia de conducir en estado vigente?
@@ -293,14 +195,15 @@ export default function SectionDatosPersonales() {
 					<div className={style.divSelect}>
 						<select
 							className={style.select}
-							id="licencia-conducir"
-							name="licencia-conducir"
+							id="licenciaConducir"
+							name="licenciaConducir"
 							required
+							onChange={(e) => handleChange(e)}
 						>
 							<option value="">Seleccione</option>
 							<option value="si">Si</option>
 							<option value="no">No</option>
-							<option value="nosabe-nocontesta">
+							<option value="nosabeNocontesta">
 								No sabe o no contesta
 							</option>
 						</select>
@@ -308,8 +211,8 @@ export default function SectionDatosPersonales() {
 				</div>
 				<div>
 					<label
-						htmlFor="tipo-licencia-conducir"
-						className={(style.labelSelect, style.label)}
+						htmlFor="tipoLicenciaConducir"
+						className={[style.labelSelect, style.label]}
 					>
 						¿Qué tipo de vehículo lo habilita a conducir esta
 						licencia?
@@ -317,20 +220,21 @@ export default function SectionDatosPersonales() {
 					<div className={style.divSelect}>
 						<select
 							className={style.select}
-							id="tipo-licencia-conducir"
-							name="tipo-licencia-conducir"
+							id="tipoLicenciaConducir"
+							name="tipoLicenciaConducir"
 							required
+							onChange={(e) => handleChange(e)}
 						>
 							<option value="">Seleccione</option>
 							<option value="ciclomotores">
 								Ciclomotores, Motocicletas y Triciclos
 								motorizados
 							</option>
-							<option value="automoviles-camionetas">
+							<option value="automovilesCamionetas">
 								Automóviles y camionetas con acoplados de hasta
 								750 kg de peso a casa rodante
 							</option>
-							<option value="camiones-claseB">
+							<option value="camionesClaseB">
 								Camiones sin acoplado y los comprendidos en la
 								clase B
 							</option>
@@ -339,7 +243,7 @@ export default function SectionDatosPersonales() {
 								pasajeros, emergencias, seguridad y los de clase
 								B o C, según caso
 							</option>
-							<option value="automores-discapacitados">
+							<option value="automoresDiscapacitados">
 								Automotores especialmente adaptados para
 								discapacitados
 							</option>
@@ -353,59 +257,63 @@ export default function SectionDatosPersonales() {
 				<h3 className={style.h3}>Dirección del siniestro</h3>
 				<div className={style.divLargo}>
 					<label
-						htmlFor="direccion-siniestro"
-						className={(style.labelText, style.label)}
+						htmlFor="direccionSiniestro"
+						className={[style.labelText, style.label]}
 					>
 						Dirección de la calle
 					</label>
 					<input
-						className={style.inputText}
+						className={(style.inputLargo, style.input)}
 						type="text"
-						id="direccion-siniestro"
+						id="direccionSiniestro"
 						required
+						onChange={(e) => handleChange(e)}
 					/>
 				</div>
 				<div className={style.divLargo}>
 					<label
-						htmlFor="direccion-siniestro-2"
+						htmlFor="direccionSiniestro-2"
 						className={(style.labelText, style.label)}
 					>
 						Dirección de la calle Línea 2
 					</label>
 					<input
-						className={style.inputText}
+						className={[style.inputLargo, style.input]}
 						type="text"
-						id="direccion-siniestro-2"
+						id="direccionSiniestro-2"
 						required
+						onChange={(e) => handleChange(e)}
 					/>
 				</div>
 				<div className={style.dosDivsJuntos}>
 					<div>
 						<label
-							htmlFor="ciudad-siniestro"
+							htmlFor="ciudadSiniestro"
 							className={(style.labelText, style.label)}
 						>
 							Ciudad
 						</label>
 						<input
-							className={style.inputText}
+							className={[style.inputCorto, style.input]}
 							type="text"
-							id="ciudad-siniestro"
+							id="ciudadSiniestro"
 							required
+							onChange={(e) => handleChange(e)}
 						/>
 					</div>
 					<div>
 						<label
-							htmlFor="estado-provincia-siniestro"
+							htmlFor="estadoProvinciaSiniestro"
 							className={[style.labelText, style.label]}
 						>
 							Estado / Provincia
 						</label>
 						<input
-							className={style.inputText}
+							className={[style.inputCorto, style.input]}
 							type="text"
-							id="estado-provincia-siniestro"
+							id="estadoProvinciaSiniestro"
 							required
+							onChange={(e) => handleChange(e)}
 						/>
 					</div>
 				</div>
