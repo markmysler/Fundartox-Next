@@ -153,7 +153,6 @@ export default function FormularioComponent({ user }) {
 							const options = document.querySelectorAll(
 								"#diagnosticosPresuntivos option"
 							);
-
 							const optionElements = [];
 							for (const key5 in options) {
 								if (options[key5].id !== undefined) {
@@ -167,7 +166,12 @@ export default function FormularioComponent({ user }) {
 								selectedOptions2.selected = true;
 							});
 						} else {
-							campo.value = incData[key];
+							try {
+								console.log(campo);
+								campo.value = incData[key];
+							} catch (error) {
+								console.log(error);
+							}
 						}
 					}
 					Swal.fire("Datos recuperados!", "", "success");
@@ -224,7 +228,10 @@ export default function FormularioComponent({ user }) {
 					<button type="submit" className={style.btnEnviar}>
 						Enviar formulario
 					</button>
-					<button onClick={handleSaveIncompleteForm}>
+					<button
+						onClick={handleSaveIncompleteForm}
+						className={style.btnGuardar}
+					>
 						Guardar progreso
 					</button>
 					{localData.length > 0 && (

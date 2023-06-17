@@ -5,10 +5,13 @@ export default function SectionComsumoSustancias({ handleChange }) {
 		<>
 			<section id="consumoSustanciasPsicoactivas">
 				<h2 className={style.h2}>Consumo de sustancias psicoactivas</h2>
-				<p>
-					¿Consumió alguna de estas sustancias en las últimas 6 horas?
-					LEER TODAS LAS FILAS.
-				</p>
+				<div className={style.divPSustancias}>
+					<p className={style.pSustancias}>
+						¿Consumió alguna de estas sustancias en las últimas 6
+						horas?
+					</p>
+					<p className={style.pSustancias}>LEER TODAS LAS FILAS.</p>
+				</div>
 				<h3 className={style.h3}>Alcohol</h3>
 				<div className={style.divTresRadio}>
 					<div className={style.divDosRadio}>

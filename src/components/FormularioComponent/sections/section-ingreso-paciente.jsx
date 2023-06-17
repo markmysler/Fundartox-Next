@@ -36,7 +36,7 @@ export default function SectionIngresoPaciente({ handleChange }) {
 					</label>
 					<div className={style.divSelect}>
 						<input
-							className={style.inputText}
+							className={style.inputGlasgow}
 							type="text"
 							id="glasgow"
 							placeholder="Por ej., 23"
@@ -54,7 +54,7 @@ export default function SectionIngresoPaciente({ handleChange }) {
 					</label>
 					<div className={style.divSelect}>
 						<select
-							className={style.select}
+							className={style.selectLargo}
 							id="motivoIngreso"
 							name="motivoIngreso"
 							required
@@ -75,15 +75,12 @@ export default function SectionIngresoPaciente({ handleChange }) {
 					</div>
 				</div>
 				<div>
-					<label
-						htmlFor="diagnosticosPresuntivos"
-						className={(style.labelSelect, style.label)}
-					>
+					<h3 htmlFor="diagnosticosPresuntivos" className={style.h3}>
 						Diagnósticos Presuntivos
-					</label>
-					<p>
-						Si quiere presionar más de un diagnóstico, aprete la
-						tecla <span className={style.negrita}>control</span>
+					</h3>
+					<p className={style.p}>
+						Para seleccionar más de un diagnóstico, aprete la tecla{" "}
+						<span className={style.negrita}>CTRL</span>
 					</p>
 					<div className={style.divSelectMultiple}>
 						<select
@@ -454,7 +451,7 @@ export default function SectionIngresoPaciente({ handleChange }) {
 					</label>
 					<div className={style.divSelect}>
 						<select
-							className={style.select}
+							className={style.selectLargo}
 							id="modoTransporteLesionado"
 							name="modoTransporteLesionado"
 							required
@@ -501,7 +498,7 @@ export default function SectionIngresoPaciente({ handleChange }) {
 					</label>
 					<div className={style.divSelect}>
 						<select
-							className={style.select}
+							className={style.selectLargo}
 							id="contraColisionPersonaLesionada"
 							name="contraColisionPersonaLesionada"
 							required
@@ -564,58 +561,110 @@ export default function SectionIngresoPaciente({ handleChange }) {
 						</select>
 					</div>
 				</div>
-				<h3 className={style.h3}>Dinámica del accidente</h3>
+				<h3 className={style.h3}>
+					¿Cómo fue el siniestro vial en el que participó?
+				</h3>
 				<div>
 					<div className={style.divDosRadio}>
 						<input
 							className={style.inputRadio}
-							name="dinamicaAccidente"
-							id="dinamicaAccidenteEscribaOpcion1"
-							value="dinamicaAccidenteEscribaOpcion1"
+							name="comoFueSiniestro"
+							id="comoFueSiniestroColision"
+							value="comoFueSiniestroColision"
 							type="radio"
 							onChange={(e) => handleChange(e)}
 						/>
-						<label htmlFor="dinamicaAccidenteEscribaOpcion1">
-							Escriba opción 1
+						<label htmlFor="comoFueSiniestroColision">
+							Colisión (contra otro vehículo en movimiento)
 						</label>
 					</div>
 					<div className={style.divDosRadio}>
 						<input
 							className={style.inputRadio}
-							name="dinamicaAccidente"
-							id="dinamicaAccidenteEscribaOpcion2"
-							value="dinamicaAccidenteEscribaOpcion2"
+							name="comoFueSiniestro"
+							id="comoFueSiniestroCaidaVehiculo"
+							value="comoFueSiniestroCaidaVehiculo"
 							type="radio"
 							onChange={(e) => handleChange(e)}
 						/>
-						<label htmlFor="dinamicaAccidenteEscribaOpcion2">
-							Escriba opción 2
+						<label htmlFor="comoFueSiniestroCaidaVehiculo">
+							Caída de vehículo
 						</label>
 					</div>
 					<div className={style.divDosRadio}>
 						<input
 							className={style.inputRadio}
-							name="dinamicaAccidente"
-							id="dinamicaAccidenteEscribaOpcion3"
-							value="dinamicaAccidenteEscribaOpcion3"
+							name="comoFueSiniestro"
+							id="comoFueSiniestroChoque"
+							value="comoFueSiniestroChoque"
 							type="radio"
 							onChange={(e) => handleChange(e)}
 						/>
-						<label htmlFor="dinamicaAccidente">
-							Escriba opción 3
+						<label htmlFor="comoFueSiniestroChoque">
+							Choque (contra un objeto fijo)
 						</label>
 					</div>
 					<div className={style.divDosRadio}>
 						<input
 							className={style.inputRadio}
-							name="dinamicaAccidente"
-							id="dinamicaAccidenteEscribaOpcion4"
-							value="dinamicaAccidenteEscribaOpcion4"
+							name="comoFueSiniestro"
+							id="comoFueSiniestroAtropelloPeaton"
+							value="comoFueSiniestroAtropelloPeaton"
 							type="radio"
 							onChange={(e) => handleChange(e)}
 						/>
-						<label htmlFor="dinamicaAccidente">
-							Escriba opción 4
+						<label htmlFor="comoFueSiniestroAtropelloPeaton">
+							Atropello a peatón
+						</label>
+					</div>
+					<div className={style.divDosRadio}>
+						<input
+							className={style.inputRadio}
+							name="comoFueSiniestro"
+							id="comoFueSiniestroAtropelloAnimal"
+							value="comoFueSiniestroAtropelloAnimal"
+							type="radio"
+							onChange={(e) => handleChange(e)}
+						/>
+						<label htmlFor="comoFueSiniestroAtropelloAnimal">
+							Atropello a animal
+						</label>
+					</div>
+					<div className={style.divDosRadio}>
+						<input
+							className={style.inputRadio}
+							name="comoFueSiniestro"
+							id="comoFueSiniestroDespiste"
+							value="comoFueSiniestroDespiste"
+							type="radio"
+							onChange={(e) => handleChange(e)}
+						/>
+						<label htmlFor="comoFueSiniestroDespiste">
+							Despiste
+						</label>
+					</div>
+					<div className={style.divDosRadio}>
+						<input
+							className={style.inputRadio}
+							name="comoFueSiniestro"
+							id="comoFueSiniestroVuelco"
+							value="comoFueSiniestroVuelco"
+							type="radio"
+							onChange={(e) => handleChange(e)}
+						/>
+						<label htmlFor="comoFueSiniestroVuelco">Vuelco</label>
+					</div>
+					<div className={style.divDosRadio}>
+						<input
+							className={style.inputRadio}
+							name="comoFueSiniestro"
+							id="comoFueSiniestroOtro"
+							value="comoFueSiniestroOtro"
+							type="radio"
+							onChange={(e) => handleChange(e)}
+						/>
+						<label htmlFor="comoFueSiniestroOtro">
+							Otro (especificar)
 						</label>
 					</div>
 				</div>

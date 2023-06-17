@@ -14,7 +14,7 @@ export default function SectionInicioEncuesta({ handleChange }) {
 				<div className={style.divPar}>
 					<label
 						htmlFor="codigoEncuestador"
-						className={[style.labelTitulo, style.label]}
+						className={[style.labelTitulo]}
 					>
 						Código Encuestador
 					</label>

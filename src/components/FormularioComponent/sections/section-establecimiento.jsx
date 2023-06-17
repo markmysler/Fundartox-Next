@@ -12,7 +12,7 @@ export default function SectionEstablecimiento({ handleChange }) {
 					Nombre
 				</label>
 				<select
-					className={style.select}
+					className={style.selectLargo}
 					id="nombrehospital"
 					name="nombrehospital"
 					required

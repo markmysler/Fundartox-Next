@@ -2,7 +2,7 @@
 
 .h1 {
 	font-weight: 500;
-	font-size: 1.5vw;
+	font-size: 2vw;
 	margin: 1vw 0;
 	text-align: center;
 	padding-bottom: 2vw;
@@ -15,14 +15,27 @@
 	border-bottom: solid 2px #f3f3fe;
 	padding-bottom: 2vw;
 	margin: 2vw 0;
-	font-size: 1.2vw;
+	font-size: 1.6vw;
 	font-weight: bold;
 }
 
 .h3 {
-	font-weight: normal;
-	font-size: 1.1vw;
-	margin: 2vw 0 1.5vw 0;
+	font-weight: bold;
+	font-size: 1.4vw;
+	margin: 1vw 0;
+}
+
+.p {
+	margin-bottom: 3vh;
+}
+
+.divPSustancias {
+	margin-bottom: 4vw;
+}
+
+.pSustancias {
+	font-size: 1.5vw;
+	margin: 0.8vw 0;
 }
 
 /* Inputs */
@@ -51,20 +64,36 @@
 	padding: 1%;
 	width: 50%;
 	font-size: 1.2vw;
-	margin-bottom: 1vw;
+	margin: 1vw 0;
+	border: solid 1px #b8bdc9;
+	border-radius: 4px;
+	font-weight: lighter;
+}
+
+.inputGlasgow {
+	padding: 1%;
+	width: 50%;
+	font-size: 1.2vw;
+	margin: 0;
 	border: solid 1px #b8bdc9;
 	border-radius: 4px;
 	font-weight: lighter;
 }
 
 .inputLargo {
-	width: 100%;
+	padding: 1%;
+	width: auto;
+	font-size: 1.2vw;
+	margin: 1vw 0;
+	border: solid 1px #b8bdc9;
+	border-radius: 4px;
+	font-weight: lighter;
 }
 
 .inputDate {
 	padding: 1%;
 	width: 50%;
-	margin-bottom: 1vw;
+	margin: 1vw 0;
 	border: solid 1px #b8bdc9;
 	border-radius: 4px;
 	font-weight: lighter;
@@ -105,6 +134,16 @@
 	font-weight: lighter;
 }
 
+.selectLargo {
+	padding: 1%;
+	width: 100%;
+	border: solid 1px #b8bdc9;
+	border-radius: 4px;
+	font-size: 1.2vw;
+	margin-bottom: 1vw;
+	font-weight: lighter;
+}
+
 .labelSelect {
 	font-size: 1.1vw;
 	margin: 2vw 0;
@@ -126,13 +165,23 @@
 
 .userForm {
 	background-color: white;
-	width: 45%;
+	width: 55%;
 	display: flex;
 	flex-direction: column;
 	margin: 0 auto;
 	padding: 4%;
 	box-shadow: 0 4px 4px rgba(87, 100, 126, 0.21);
 	border-radius: 4px;
+}
+
+.userForm section {
+	padding: 1% 3%;
+}
+
+.userForm section:focus-within {
+	background-color: #e5e7f2;
+	border: none;
+	border-radius: 10px;
 }
 
 /* Establecimiento sanitario */
@@ -153,12 +202,17 @@
 .dosDivsJuntos div {
 	display: flex;
 	flex-direction: column-reverse;
+	width: 100%;
 }
 
-.dosDivsJuntos div input {
-	margin-top: 1vw;
+.inputCorto {
 	padding: 2%;
-	width: 21vw;
+	width: 90%;
+	font-size: 1.2vw;
+	margin: 1vw 0;
+	border: solid 1px #b8bdc9;
+	border-radius: 4px;
+	font-weight: lighter;
 }
 
 .dosDivsJuntos div label {
@@ -199,11 +253,14 @@
 /* Ingreso paciente guardia */
 
 .divSelect {
-	margin: 2vw 0;
+	margin: 1vw 0;
 }
 
 .divSelectMultiple {
 	margin: 2vw 0;
+}
+.divSelectMultiple select {
+	width: 100%;
 }
 
 .selectScroll {
@@ -253,23 +310,41 @@
 	display: flex;
 	justify-content: space-between;
 	width: 80%;
-	margin-bottom: 1.5vw;
+	margin: 1.5vw 0;
 }
 
 /* Botones */
 
 .botonesForm {
 	display: flex;
-	justify-content: flex-end;
+	justify-content: flex-start;
+	flex-direction: row-reverse;
 	margin-top: 2vw;
+	gap: 2vw;
+	padding-right: 2vw;
 }
 
 .btnEnviar {
 	width: 9vw;
-	height: 3.5vw;
+	height: 4.2vw;
 	color: white;
 	background-color: #2e69ff;
+	border: 1px solid #2c3345;
+	border-radius: 4px;
+	font-size: 1.5vw;
+}
+
+.btnEnviar:hover,
+.btnGuardar:hover {
 	border: none;
+}
+
+.btnGuardar {
+	width: 9vw;
+	height: 4.2vw;
+	color: #2c3345;
+	background-color: #e5e7f2;
+	border: 1px solid #2c3345;
 	border-radius: 4px;
 	font-size: 1.5vw;
 }
@@ -325,4 +400,57 @@
 .btnSesionGrande:hover {
 	color: white;
 	box-shadow: 1.5px 1.5px #2e69ff;
+}
+
+@media (min-width: 1920px) {
+	.h1 {
+		font-size: 2.4vw;
+	}
+	.labelTitulo,
+	.label,
+	.labelText {
+		font-size: 1.2vw;
+	}
+	.h2 {
+		font-size: 1.8vw;
+		padding-bottom: 1vw;
+	}
+	.selectLargo option,
+	.select option {
+		font-size: 0.8vw;
+	}
+	.inputDate {
+		margin: 0;
+	}
+	.inputLargo,
+	.inputCorto {
+		margin-bottom: 0.2vw;
+	}
+	.inputGlasgow {
+		margin-bottom: 1vw;
+	}
+	.p {
+		font-size: 1.2vw;
+	}
+	.divSelectMultiple {
+		margin: 1vw 0;
+	}
+	.divSelectMultiple select {
+		height: 20vh;
+	}
+	.divSelectMultiple option {
+		font-size: 1.2vw;
+	}
+	.divDosRadio label {
+		font-size: 1.3vw;
+	}
+	.labelCheckbox {
+		font-size: 1.3vw;
+	}
+	.divPSustancias {
+		margin-bottom: 3vw;
+	}
+	.pSustancias {
+		font-size: 1.5vw;
+	}
 }

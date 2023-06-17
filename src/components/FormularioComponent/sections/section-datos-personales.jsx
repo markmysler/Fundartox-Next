@@ -16,7 +16,7 @@ export default function SectionDatosPersonales({ handleChange }) {
 					/>
 					<label
 						htmlFor="fechaDeNacimiento"
-						className={[style.labelText, style.label]}
+						className={(style.labelText, style.label)}
 					>
 						Fecha de nacimiento
 					</label>
@@ -69,7 +69,7 @@ export default function SectionDatosPersonales({ handleChange }) {
 				<div>
 					<label
 						htmlFor="nivelEducativo"
-						className={[style.labelSelect, style.label]}
+						className={(style.labelSelect, style.label)}
 					>
 						Nivel Educativo
 					</label>
@@ -165,7 +165,7 @@ export default function SectionDatosPersonales({ handleChange }) {
 					</label>
 					<div className={style.divSelect}>
 						<select
-							className={style.select}
+							className={style.selectLargo}
 							id="ocupacion"
 							name="ocupacion"
 							required
@@ -212,14 +212,14 @@ export default function SectionDatosPersonales({ handleChange }) {
 				<div>
 					<label
 						htmlFor="tipoLicenciaConducir"
-						className={[style.labelSelect, style.label]}
+						className={(style.labelSelect, style.label)}
 					>
 						¿Qué tipo de vehículo lo habilita a conducir esta
 						licencia?
 					</label>
 					<div className={style.divSelect}>
 						<select
-							className={style.select}
+							className={style.selectLargo}
 							id="tipoLicenciaConducir"
 							name="tipoLicenciaConducir"
 							required
@@ -255,66 +255,68 @@ export default function SectionDatosPersonales({ handleChange }) {
 					</div>
 				</div>
 				<h3 className={style.h3}>Dirección del siniestro</h3>
-				<div className={style.divLargo}>
-					<label
-						htmlFor="direccionSiniestro"
-						className={[style.labelText, style.label]}
-					>
-						Dirección de la calle
-					</label>
-					<input
-						className={(style.inputLargo, style.input)}
-						type="text"
-						id="direccionSiniestro"
-						required
-						onChange={(e) => handleChange(e)}
-					/>
-				</div>
-				<div className={style.divLargo}>
-					<label
-						htmlFor="direccionSiniestro-2"
-						className={(style.labelText, style.label)}
-					>
-						Dirección de la calle Línea 2
-					</label>
-					<input
-						className={[style.inputLargo, style.input]}
-						type="text"
-						id="direccionSiniestro-2"
-						required
-						onChange={(e) => handleChange(e)}
-					/>
-				</div>
-				<div className={style.dosDivsJuntos}>
-					<div>
+				<div>
+					<div className={style.divLargo}>
 						<label
-							htmlFor="ciudadSiniestro"
+							htmlFor="direccionSiniestro"
 							className={(style.labelText, style.label)}
 						>
-							Ciudad
+							Dirección de la calle
 						</label>
 						<input
-							className={[style.inputCorto, style.input]}
+							className={style.inputLargo}
 							type="text"
-							id="ciudadSiniestro"
+							id="direccionSiniestro"
 							required
 							onChange={(e) => handleChange(e)}
 						/>
 					</div>
-					<div>
+					<div className={style.divLargo}>
 						<label
-							htmlFor="estadoProvinciaSiniestro"
-							className={[style.labelText, style.label]}
+							htmlFor="direccionSiniestro-2"
+							className={(style.labelText, style.label)}
 						>
-							Estado / Provincia
+							Dirección de la calle Línea 2
 						</label>
 						<input
-							className={[style.inputCorto, style.input]}
+							className={[style.inputLargo]}
 							type="text"
-							id="estadoProvinciaSiniestro"
+							id="direccionSiniestro-2"
 							required
 							onChange={(e) => handleChange(e)}
 						/>
+					</div>
+					<div className={style.dosDivsJuntos}>
+						<div>
+							<label
+								htmlFor="ciudadSiniestro"
+								className={(style.labelText, style.label)}
+							>
+								Ciudad
+							</label>
+							<input
+								className={style.inputCorto}
+								type="text"
+								id="ciudadSiniestro"
+								required
+								onChange={(e) => handleChange(e)}
+							/>
+						</div>
+						<div>
+							<label
+								htmlFor="estadoProvinciaSiniestro"
+								className={(style.labelText, style.label)}
+							>
+								Estado / Provincia
+							</label>
+							<input
+								className={style.inputCorto}
+								type="text"
+								id="estadoProvinciaSiniestro"
+								required
+								onChange={(e) => handleChange(e)}
+							/>
+						</div>
 					</div>
 				</div>
 			</section>
