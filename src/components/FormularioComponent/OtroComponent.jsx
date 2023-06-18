@@ -1,6 +1,6 @@
 import style from "./form.module.css";
 
-export default function OtroComponent({ handleChange }) {
+export default function OtroComponent({ handleChange, otroChecked }) {
 	return (
 		<>
 			<div>
@@ -10,7 +10,7 @@ export default function OtroComponent({ handleChange }) {
 					id="comoFueSiniestroOtroEspecifique"
 					placeholder="..."
 					required
-					onChange={(e) => handleChange(e)}
+					onChange={(e) => (handleChange(e), otroChecked())}
 				/>
 			</div>
 		</>

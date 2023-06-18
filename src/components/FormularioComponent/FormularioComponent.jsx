@@ -26,7 +26,8 @@ import SectionComsumoSustancias from "./sections/section-consumo-sustancias";
 export default function FormularioComponent({ user }) {
 	const [localData, setLocalData] = useState({});
 	const [openCloseOtro, setOpenCloseOtro] = useState("closed");
-	let currentValues = {};
+	const [currentValues, setCurrentValues] = useState({});
+
 	useEffect(() => {
 		setLocalData(getLocalSaves());
 		useIncompleteForm();
@@ -185,7 +186,7 @@ export default function FormularioComponent({ user }) {
 	}
 
 	function handleSaveIncompleteForm() {
-		if (Object.keys(currentValues).length !== 0) {
+		if (Object.keys(currentValues).length > 0) {
 			toast.info("Guardando...");
 			saveIncompleteForm(currentValues);
 			toast.success("Progreso guardado localmente");
@@ -205,7 +206,13 @@ export default function FormularioComponent({ user }) {
 				"#diagnosticosPresuntivos option:checked"
 			);
 			const ids = Array.from(selected).map((el) => el.id);
-			currentValues[inputID] = ids;
+
+			const currentValue = [...ids];
+
+			const newObj = { ...currentValues };
+			newObj[inputID] = currentValue;
+
+			setCurrentValues(newObj);
 		}
 	}
 

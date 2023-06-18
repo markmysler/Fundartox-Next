@@ -1,6 +1,18 @@
+import { useState } from "react";
+import TipoLicenciaComponent from "../TipoLicenciaComponent";
 import style from "../form.module.css";
 
 export default function SectionDatosPersonales({ handleChange }) {
+	const [tipoLicencia, setTipoLicencia] = useState(<TipoLicenciaComponent />);
+	const tieneLicencia = (e) => {
+		if (e.target.value === "si") {
+			setTipoLicencia(
+				<TipoLicenciaComponent handleChange={handleChange} />
+			);
+		} else {
+			setTipoLicencia(<></>);
+		}
+	};
 	return (
 		<>
 			<section id="datosPersonales">
@@ -198,7 +210,9 @@ export default function SectionDatosPersonales({ handleChange }) {
 							id="licenciaConducir"
 							name="licenciaConducir"
 							required
-							onChange={(e) => handleChange(e)}
+							onChange={(e) => (
+								handleChange(e), tieneLicencia(e)
+							)}
 						>
 							<option value="">Seleccione</option>
 							<option value="si">Si</option>
@@ -209,51 +223,7 @@ export default function SectionDatosPersonales({ handleChange }) {
 						</select>
 					</div>
 				</div>
-				<div>
-					<label
-						htmlFor="tipoLicenciaConducir"
-						className={(style.labelSelect, style.label)}
-					>
-						¿Qué tipo de vehículo lo habilita a conducir esta
-						licencia?
-					</label>
-					<div className={style.divSelect}>
-						<select
-							className={style.selectLargo}
-							id="tipoLicenciaConducir"
-							name="tipoLicenciaConducir"
-							required
-							onChange={(e) => handleChange(e)}
-						>
-							<option value="">Seleccione</option>
-							<option value="ciclomotores">
-								Ciclomotores, Motocicletas y Triciclos
-								motorizados
-							</option>
-							<option value="automovilesCamionetas">
-								Automóviles y camionetas con acoplados de hasta
-								750 kg de peso a casa rodante
-							</option>
-							<option value="camionesClaseB">
-								Camiones sin acoplado y los comprendidos en la
-								clase B
-							</option>
-							<option value="servicios-B-C">
-								Los destinados al servicio de transporte de
-								pasajeros, emergencias, seguridad y los de clase
-								B o C, según caso
-							</option>
-							<option value="automoresDiscapacitados">
-								Automotores especialmente adaptados para
-								discapacitados
-							</option>
-							<option value="agricolas">
-								Tractores agrícolas y maquinaria especial
-								agrícola
-							</option>
-						</select>
-					</div>
-				</div>
+				{tipoLicencia}
 				<h3 className={style.h3}>Dirección del siniestro</h3>
 				<div>
 					<div className={style.divLargo}>
