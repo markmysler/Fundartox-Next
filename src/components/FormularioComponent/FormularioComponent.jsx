@@ -25,6 +25,7 @@ import SectionComsumoSustancias from "./sections/section-consumo-sustancias";
 
 export default function FormularioComponent({ user }) {
 	const [localData, setLocalData] = useState({});
+	const [openCloseOtro, setOpenCloseOtro] = useState("closed");
 	let currentValues = {};
 	useEffect(() => {
 		setLocalData(getLocalSaves());
@@ -167,10 +168,9 @@ export default function FormularioComponent({ user }) {
 							});
 						} else {
 							try {
-								console.log(campo);
 								campo.value = incData[key];
 							} catch (error) {
-								console.log(error);
+								setOpenCloseOtro("open");
 							}
 						}
 					}
@@ -221,7 +221,10 @@ export default function FormularioComponent({ user }) {
 				<SectionEstablecimiento handleChange={handleChange} />
 				<SectionDatosPersonales handleChange={handleChange} />
 				<SectionCondicionSalud handleChange={handleChange} />
-				<SectionIngresoPaciente handleChange={handleChange} />
+				<SectionIngresoPaciente
+					handleChange={handleChange}
+					openCloseOtro={openCloseOtro}
+				/>
 				<SectionComsumoSustancias handleChange={handleChange} />
 
 				<div className={style.botonesForm}>
@@ -231,6 +234,7 @@ export default function FormularioComponent({ user }) {
 					<button
 						onClick={handleSaveIncompleteForm}
 						className={style.btnGuardar}
+						type="button"
 					>
 						Guardar progreso
 					</button>

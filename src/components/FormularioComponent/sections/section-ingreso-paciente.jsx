@@ -1,6 +1,23 @@
+import { useEffect, useState } from "react";
 import style from "../form.module.css";
+import OtroComponent from "../OtroComponent";
 
-export default function SectionIngresoPaciente({ handleChange }) {
+export default function SectionIngresoPaciente({
+	handleChange,
+	openCloseOtro,
+}) {
+	const [otroE, setOtroE] = useState(<></>);
+	const otroChecked = () => {
+		const otro = document.getElementById("comoFueSiniestroOtro");
+		if (!!otro.checked) {
+			setOtroE(<OtroComponent handleChange={handleChange} />);
+		} else {
+			setOtroE(<></>);
+		}
+	};
+	useEffect(() => {
+		otroChecked();
+	}, [openCloseOtro]);
 	return (
 		<>
 			<section id="ingresoPacienteGuardia">
@@ -37,9 +54,11 @@ export default function SectionIngresoPaciente({ handleChange }) {
 					<div className={style.divSelect}>
 						<input
 							className={style.inputGlasgow}
-							type="text"
+							type="number"
+							min={1}
+							max={15}
 							id="glasgow"
-							placeholder="Por ej., 23"
+							placeholder="1 - 15"
 							required
 							onChange={(e) => handleChange(e)}
 						/>
@@ -572,7 +591,7 @@ export default function SectionIngresoPaciente({ handleChange }) {
 							id="comoFueSiniestroColision"
 							value="comoFueSiniestroColision"
 							type="radio"
-							onChange={(e) => handleChange(e)}
+							onChange={(e) => (handleChange(e), otroChecked())}
 						/>
 						<label htmlFor="comoFueSiniestroColision">
 							Colisión (contra otro vehículo en movimiento)
@@ -585,7 +604,7 @@ export default function SectionIngresoPaciente({ handleChange }) {
 							id="comoFueSiniestroCaidaVehiculo"
 							value="comoFueSiniestroCaidaVehiculo"
 							type="radio"
-							onChange={(e) => handleChange(e)}
+							onChange={(e) => (handleChange(e), otroChecked())}
 						/>
 						<label htmlFor="comoFueSiniestroCaidaVehiculo">
 							Caída de vehículo
@@ -598,7 +617,7 @@ export default function SectionIngresoPaciente({ handleChange }) {
 							id="comoFueSiniestroChoque"
 							value="comoFueSiniestroChoque"
 							type="radio"
-							onChange={(e) => handleChange(e)}
+							onChange={(e) => (handleChange(e), otroChecked())}
 						/>
 						<label htmlFor="comoFueSiniestroChoque">
 							Choque (contra un objeto fijo)
@@ -611,7 +630,7 @@ export default function SectionIngresoPaciente({ handleChange }) {
 							id="comoFueSiniestroAtropelloPeaton"
 							value="comoFueSiniestroAtropelloPeaton"
 							type="radio"
-							onChange={(e) => handleChange(e)}
+							onChange={(e) => (handleChange(e), otroChecked())}
 						/>
 						<label htmlFor="comoFueSiniestroAtropelloPeaton">
 							Atropello a peatón
@@ -624,7 +643,7 @@ export default function SectionIngresoPaciente({ handleChange }) {
 							id="comoFueSiniestroAtropelloAnimal"
 							value="comoFueSiniestroAtropelloAnimal"
 							type="radio"
-							onChange={(e) => handleChange(e)}
+							onChange={(e) => (handleChange(e), otroChecked())}
 						/>
 						<label htmlFor="comoFueSiniestroAtropelloAnimal">
 							Atropello a animal
@@ -637,7 +656,7 @@ export default function SectionIngresoPaciente({ handleChange }) {
 							id="comoFueSiniestroDespiste"
 							value="comoFueSiniestroDespiste"
 							type="radio"
-							onChange={(e) => handleChange(e)}
+							onChange={(e) => (handleChange(e), otroChecked())}
 						/>
 						<label htmlFor="comoFueSiniestroDespiste">
 							Despiste
@@ -650,7 +669,7 @@ export default function SectionIngresoPaciente({ handleChange }) {
 							id="comoFueSiniestroVuelco"
 							value="comoFueSiniestroVuelco"
 							type="radio"
-							onChange={(e) => handleChange(e)}
+							onChange={(e) => (handleChange(e), otroChecked())}
 						/>
 						<label htmlFor="comoFueSiniestroVuelco">Vuelco</label>
 					</div>
@@ -661,12 +680,13 @@ export default function SectionIngresoPaciente({ handleChange }) {
 							id="comoFueSiniestroOtro"
 							value="comoFueSiniestroOtro"
 							type="radio"
-							onChange={(e) => handleChange(e)}
+							onChange={(e) => (handleChange(e), otroChecked())}
 						/>
 						<label htmlFor="comoFueSiniestroOtro">
-							Otro (especificar)
+							Otro (especificar debajo)
 						</label>
 					</div>
+					<>{otroE}</>
 				</div>
 				<h3 className={style.h3}>Elementos de seguridad</h3>
 				<div className={style.divMultipleCheckbox}>
