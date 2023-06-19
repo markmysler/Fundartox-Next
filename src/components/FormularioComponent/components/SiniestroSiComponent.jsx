@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import style from "./form.module.css";
-import OtroComponent from "./OtroComponent";
+import style from "../form.module.css";
+import OtroComponent from "./OtroComponent.jsx";
 
 export default function SiniestroSiComponent({ handleChange, openCloseOtro }) {
 	const [otroE, setOtroE] = useState(<></>);
@@ -11,6 +11,7 @@ export default function SiniestroSiComponent({ handleChange, openCloseOtro }) {
 				<OtroComponent
 					handleChange={handleChange}
 					otroChecked={otroChecked}
+					setOtroE={setOtroE}
 				/>
 			);
 		} else {
@@ -459,7 +460,6 @@ export default function SiniestroSiComponent({ handleChange, openCloseOtro }) {
 						id="comoFueSiniestroOtro"
 						value="comoFueSiniestroOtro"
 						type="radio"
-						checked
 						onChange={(e) => (handleChange(e), otroChecked())}
 					/>
 					<label htmlFor="comoFueSiniestroOtro">

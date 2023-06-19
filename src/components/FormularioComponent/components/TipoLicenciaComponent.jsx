@@ -1,4 +1,4 @@
-import style from "./form.module.css";
+import style from "../form.module.css";
 
 export default function TipoLicenciaComponent({ handleChange }) {
 	return (

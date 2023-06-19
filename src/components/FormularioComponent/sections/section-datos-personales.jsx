@@ -1,5 +1,5 @@
 import { useState } from "react";
-import TipoLicenciaComponent from "../TipoLicenciaComponent";
+import TipoLicenciaComponent from "../components/TipoLicenciaComponent";
 import style from "../form.module.css";
 
 export default function SectionDatosPersonales({ handleChange }) {
@@ -228,30 +228,30 @@ export default function SectionDatosPersonales({ handleChange }) {
 				<div>
 					<div className={style.divLargo}>
 						<label
-							htmlFor="direccionSiniestro"
+							htmlFor="calleSiniestro"
 							className={(style.labelText, style.label)}
 						>
-							Dirección de la calle
+							Calle
 						</label>
 						<input
 							className={style.inputLargo}
 							type="text"
-							id="direccionSiniestro"
+							id="calleSiniestro"
 							required
 							onChange={(e) => handleChange(e)}
 						/>
 					</div>
 					<div className={style.divLargo}>
 						<label
-							htmlFor="direccionSiniestro-2"
+							htmlFor="altura"
 							className={(style.labelText, style.label)}
 						>
-							Dirección de la calle Línea 2
+							Altura
 						</label>
 						<input
 							className={[style.inputLargo]}
 							type="text"
-							id="direccionSiniestro-2"
+							id="alturaSiniestro"
 							required
 							onChange={(e) => handleChange(e)}
 						/>

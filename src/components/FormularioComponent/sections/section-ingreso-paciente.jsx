@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import style from "../form.module.css";
-import OtroComponent from "../OtroComponent";
-import SiniestroSiComponent from "../SiniestroSiComponent";
+import OtroComponent from "../components/OtroComponent";
+import SiniestroSiComponent from "../components/SiniestroSiComponent";
 
 export default function SectionIngresoPaciente({
 	handleChange,

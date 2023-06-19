@@ -54,8 +54,8 @@ export default function SectionEstablecimiento({ handleChange }) {
 					<option value="chubutHospitalZonalTrelewAdolfoLargara">
 						Chubut Hospital zonal Trelew Dr. Adolfo Márgara
 					</option>
-					<option value="cordobaHospitalMunicipalUrgencias">
-						Córdoba Hospital Municipal De Urgencias
+					<option value="cordobaHospitalSanRoque">
+						Córdoba Hospital San Roque
 					</option>
 					<option value="cordobaHospitalRioCuartoSanAntonioPadua">
 						Córdoba Hospital Río Cuarto San Antonio de Padua

@@ -1,6 +1,11 @@
-import style from "./form.module.css";
+import style from "../form.module.css";
 
-export default function OtroComponent({ handleChange, otroChecked }) {
+export default function OtroComponent({
+	handleChange,
+	otroChecked = () => {
+		const otro = document.getElementById("comoFueSiniestroOtro");
+	},
+}) {
 	return (
 		<>
 			<div>

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import style from "../form.module.css";
 import moment from "moment/moment";
-import Consentimiento from "../Consentimiento";
+import Consentimiento from "../components/Consentimiento";
 
 export default function SectionInicioEncuesta({ handleChange }) {
 	useEffect(() => {
