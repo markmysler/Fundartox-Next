@@ -12,7 +12,7 @@ export default function SectionInicioEncuesta({ handleChange }) {
 	return (
 		<>
 			<section id="inicioEncuesta">
-				<Consentimiento />
+				<Consentimiento handleChange={handleChange} />
 				<div className={style.divPar}>
 					<label
 						htmlFor="codigoEncuestador"

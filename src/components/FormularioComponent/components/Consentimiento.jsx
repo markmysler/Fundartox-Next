@@ -1,6 +1,6 @@
 import style from "../form.module.css";
 
-export default function Consentimiento() {
+export default function Consentimiento({ handleChange }) {
 	return (
 		<>
 			<div className={style.divConsentimiento}>
@@ -44,6 +44,7 @@ export default function Consentimiento() {
 					type="checkbox"
 					required
 					className={style.checkboxConsentimiento}
+					onChange={(e) => handleChange(e)}
 				/>
 				<label
 					htmlFor="aceptaConsentimientoInformado"
