@@ -184,6 +184,30 @@
 	border-radius: 10px;
 }
 
+/* Terminos y condiciones */
+
+.divConsentimiento {
+	border: 1px solid #b8bdc9;
+	padding: 0.5% 1.5%;
+}
+
+.divCheckboxConsentimiento {
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: row-reverse;
+	align-items: center;
+	margin-top: 0.5vw;
+}
+
+.checkboxConsentimiento {
+	width: 1.5vw;
+	height: 1.5vw;
+}
+
+.labelConsentimiento {
+	font-size: 1vw;
+}
+
 /* Establecimiento sanitario */
 
 .establecimientoSanitario {
@@ -505,5 +529,22 @@
 	}
 	.botonesForm {
 		margin-top: 4vw;
+	}
+	.divConsentimiento p {
+		font-size: 2vw;
+	}
+	.divCheckboxConsentimiento {
+		margin: 2vw 0;
+	}
+	.divCheckboxConsentimiento label {
+		margin-right: 1vw;
+	}
+	.checkboxConsentimiento {
+		width: 3vw;
+		height: 3vw;
+		margin-right: 0.5vw;
+	}
+	.labelConsentimiento {
+		font-size: 2vw;
 	}
 }

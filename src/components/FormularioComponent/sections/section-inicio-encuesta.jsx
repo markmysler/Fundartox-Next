@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import style from "../form.module.css";
 import moment from "moment/moment";
+import Consentimiento from "../Consentimiento";
 
 export default function SectionInicioEncuesta({ handleChange }) {
 	useEffect(() => {
@@ -11,6 +12,7 @@ export default function SectionInicioEncuesta({ handleChange }) {
 	return (
 		<>
 			<section id="inicioEncuesta">
+				<Consentimiento />
 				<div className={style.divPar}>
 					<label
 						htmlFor="codigoEncuestador"
