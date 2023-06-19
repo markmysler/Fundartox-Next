@@ -246,12 +246,12 @@ export default function SectionDatosPersonales({ handleChange }) {
 							htmlFor="altura"
 							className={(style.labelText, style.label)}
 						>
-							Altura
+							Altura o Numeración
 						</label>
 						<input
 							className={[style.inputLargo]}
 							type="text"
-							id="alturaSiniestro"
+							id="alturaONumeracionSiniestro"
 							required
 							onChange={(e) => handleChange(e)}
 						/>
