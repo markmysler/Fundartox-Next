@@ -2,19 +2,21 @@
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
+	height: 75vh;
 }
 
 .tresLogos {
 	display: flex;
 	flex-direction: column;
+	gap: 5vh;
 }
 
 .tresLogos img {
-	width: 40vw;
+	height: 20vh;
 }
 
 .inicieSesion img {
-	width: 35vw;
+	height: 20vh;
 }
 
 @media screen and (orientation: portrait) {
@@ -24,12 +26,11 @@
 	}
 	.inicioContainer {
 		flex-direction: column-reverse;
-		height: 85vh;
 	}
 	.inicieSesion img {
-		width: 65vw;
+		height: 15vh;
 	}
 	.tresLogos img {
-		width: 55vw;
+		height: 15vh;
 	}
 }
