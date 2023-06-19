@@ -15,8 +15,9 @@
 	height: 20vh;
 }
 
-.inicieSesion img {
+.iniciaSesion img {
 	height: 20vh;
+	cursor: pointer;
 }
 
 @media screen and (orientation: portrait) {
@@ -27,10 +28,10 @@
 	.inicioContainer {
 		flex-direction: column-reverse;
 	}
-	.inicieSesion img {
-		height: 15vh;
+	.iniciaSesion img {
+		height: 13vh;
 	}
 	.tresLogos img {
-		height: 15vh;
+		height: 13vh;
 	}
 }

@@ -299,7 +299,7 @@
 
 .divCheckbox {
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 }
 
 .divCheckbox .labelCheckbox {
@@ -458,5 +458,52 @@
 @media screen and (orientation: portrait) {
 	.userForm {
 		width: 75%;
+	}
+	.h1 {
+		font-size: 3vw;
+	}
+	.h2 {
+		font-size: 2.5vw;
+	}
+	.h3 {
+		font-size: 2.2vw;
+	}
+	.labelTitulo,
+	.label,
+	.labelText,
+	.labelCheckbox {
+		font-size: 2vw;
+	}
+	.inputText,
+	.inputDate,
+	.inputDateTime,
+	.inputLargo,
+	.inputCorto,
+	.inputGlasgow {
+		font-size: 2.1vw;
+		margin-bottom: 2vw;
+	}
+	.select,
+	.selectLargo {
+		font-size: 2vw;
+		margin-bottom: 2vw;
+	}
+	.divPreguntaRadio {
+		margin-top: 2vw;
+	}
+	.divDosRadio label {
+		font-size: 2.1vw;
+	}
+	.pSustancias {
+		font-size: 2vw;
+	}
+	.btnEnviar,
+	.btnGuardar {
+		width: 20vw;
+		height: 8vw;
+		font-size: 2.4vw;
+	}
+	.botonesForm {
+		margin-top: 4vw;
 	}
 }

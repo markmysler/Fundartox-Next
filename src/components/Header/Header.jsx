@@ -16,7 +16,7 @@ export default function Header({ user }) {
 							className={style.btnHeader}
 							onClick={googleSignIn}
 						>
-							Iniciar sesion
+							Iniciar sesión
 						</button>
 					</>
 				) : (
