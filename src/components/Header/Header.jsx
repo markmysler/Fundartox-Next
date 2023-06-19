@@ -1,17 +1,8 @@
-import { auth } from "@/firebase/clientApp";
-import { GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
-import { signOut } from "firebase/auth";
 import style from "./Header.module.css";
 import logo from "@/images/isoFundartox.png";
+import { googleSignIn, handleLogout } from "../../app-functions/googleLogin.js";
 
 export default function Header({ user }) {
-	const googleSignIn = () => {
-		const provider = new GoogleAuthProvider();
-		signInWithRedirect(auth, provider);
-	};
-	const handleLogout = () => {
-		signOut(auth);
-	};
 	return (
 		<header className={style.header}>
 			<div className={style.divIsologo}>
@@ -30,7 +21,15 @@ export default function Header({ user }) {
 					</>
 				) : (
 					<>
-						<p>Has iniciado sesión como {user.displayName}</p>
+						<p>
+							Has iniciado sesión como{" "}
+							{user.displayName.split(" ").map(
+								(i) =>
+									`
+										${i[0].toUpperCase() + i.slice(1)}
+										`
+							)}
+						</p>
 						<button
 							className={style.btnHeader}
 							onClick={handleLogout}

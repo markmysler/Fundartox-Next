@@ -36,9 +36,27 @@
 	background-color: #e5e7f2;
 	border: 2px solid black;
 	border-radius: 10px;
-	width: 7.8vw;
-	height: 2.8vw;
+	font-weight: 500;
+	width: 8vw;
+	height: 3vw;
 	box-shadow: 1.5px 1.5px black;
 	color: black;
 	font-size: 1vw;
+}
+.btnHeader:hover {
+	border: 2px solid gray;
+}
+
+@media screen and (orientation: portrait) {
+	.divIsologo img {
+		width: 20vw;
+	}
+	.login p {
+		font-size: 2.5vw;
+	}
+	.btnHeader {
+		width: 12vw;
+		height: 6vw;
+		font-size: 2vw;
+	}
 }

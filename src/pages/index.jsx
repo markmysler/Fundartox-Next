@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase/clientApp";
 import style from "./index.module.css";
+import Inicio from "@/components/Inicio/Inicio";
 
 export default function Home() {
 	const [user] = useAuthState(auth);
@@ -14,11 +15,12 @@ export default function Home() {
 		}
 	}, [user]);
 	return (
-		<div className={style.body}>
+		// <div className={style.body}>
+
+		// </div>
+		<>
 			<Header user={user} />
-			<main>
-				<h1>Inicia sesion para ver el formulario</h1>
-			</main>
-		</div>
+			<Inicio />
+		</>
 	);
 }

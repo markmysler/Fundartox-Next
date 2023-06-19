@@ -1,0 +1,35 @@
+.inicioContainer {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.tresLogos {
+	display: flex;
+	flex-direction: column;
+}
+
+.tresLogos img {
+	width: 40vw;
+}
+
+.inicieSesion img {
+	width: 35vw;
+}
+
+@media screen and (orientation: portrait) {
+	.tresLogos {
+		height: 60vh;
+		justify-content: space-evenly;
+	}
+	.inicioContainer {
+		flex-direction: column-reverse;
+		height: 85vh;
+	}
+	.inicieSesion img {
+		width: 65vw;
+	}
+	.tresLogos img {
+		width: 55vw;
+	}
+}

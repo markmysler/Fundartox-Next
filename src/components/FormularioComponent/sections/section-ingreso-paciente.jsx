@@ -118,8 +118,9 @@ export default function SectionIngresoPaciente({
 					</h3>
 					{!!!isTouchEnabled() ? (
 						<p className={style.p}>
-							Para seleccionar más de un diagnóstico, aprete la
-							tecla <span className={style.negrita}>CTRL</span>
+							Para seleccionar más de una opcion, mantenga
+							presionada la tecla{" "}
+							<span className={style.negrita}>CTRL</span>
 						</p>
 					) : (
 						<></>
