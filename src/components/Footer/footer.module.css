@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap");
+
+.divFooter {
+	background-color: #009045;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.pFooter {
+	font-size: 1.3vw;
+	margin-right: 2vw;
+	color: white;
+	font-family: "Poppins", sans-serif;
+	padding: 1vw 0;
+}
+
+@media screen and (orientation: portrait) {
+	.pFooter {
+		font-size: 1.7vw;
+	}
+}

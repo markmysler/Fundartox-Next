@@ -6,6 +6,9 @@ import { router } from "next/router";
 import Header from "@/components/Header/Header";
 import FormularioComponent from "@/components/FormularioComponent/FormularioComponent";
 import style from "../index.module.css";
+import Footer from "@/components/Footer/Footer";
+import favicon from "../../images/favicon.ico";
+import Head from "next/head";
 
 export default function Formulario() {
 	const [user] = useAuthState(auth);
@@ -16,9 +19,16 @@ export default function Formulario() {
 		}
 	}, [user]);
 	return (
-		<div className={style.body}>
-			<Header user={user} />
-			<FormularioComponent user={user} />
-		</div>
+		<>
+			<Head>
+				<title>Fundartox - Formulario</title>
+				<link rel="icon" href={favicon.src} type="image/x-icon" />
+			</Head>
+			<div className={style.body}>
+				<Header user={user} />
+				<FormularioComponent user={user} />
+			</div>
+			<Footer />
+		</>
 	);
 }

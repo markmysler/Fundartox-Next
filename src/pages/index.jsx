@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase/clientApp";
 import Inicio from "@/components/Inicio/Inicio";
+import Head from "next/head";
+import favicon from "../images/favicon.ico";
 
 export default function Home() {
 	const [user] = useAuthState(auth);
@@ -15,6 +17,10 @@ export default function Home() {
 	}, [user]);
 	return (
 		<>
+			<Head>
+				<title>Fundartox - Inicio</title>
+				<link rel="icon" href={favicon.src} type="image/x-icon" />
+			</Head>
 			<Header user={user} />
 			<Inicio />
 		</>

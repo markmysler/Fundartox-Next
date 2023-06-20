@@ -30,7 +30,7 @@ export default function SectionEstablecimiento({ handleChange }) {
 						Bs As Hospital Interzonal de Agudos Evita
 					</option>
 					<option value="bsAsHospitalZonalAgudosParoissien">
-						Bs AsHospital Zonal General de Agudos Dr. Paroissien
+						Bs As Hospital Zonal General de Agudos Dr. Paroissien
 					</option>
 					<option value="bsAsHospitalZonalAgudosDomingoMercante">
 						Bs As Hospital Zonal de Agudos Gdor. Domingo Mercante
@@ -96,8 +96,8 @@ export default function SectionEstablecimiento({ handleChange }) {
 					<option value="sanJuanHospitalRawson">
 						San Juan Hospital Rawson
 					</option>
-					<option value="sanLuiscomplejoSanitarioSanLuis">
-						San Luis Complejo Sanitario de San Luis
+					<option value="sanLuisHospitalRamonCarrilloSanLuis">
+						San Luis Hospital Ramon Carrillo de San Luis
 					</option>
 					<option value="santaCruzHospitalRegionalRioGallegos">
 						Santa Cruz Hospital Regional de Río Gallegos
