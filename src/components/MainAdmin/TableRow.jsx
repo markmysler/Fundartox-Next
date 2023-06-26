@@ -24,8 +24,8 @@ export default function TableRow({ item, index, reciveData }) {
 					.split(" ")
 					.map((i) => `${i[0].toUpperCase() + i.slice(1)} `)}
 			</td>
-			<td>{receivedData[0]}</td>
-			<td>{receivedData[1]}</td>
+			<td>{receivedData ?? receivedData[0]}</td>
+			<td>{receivedData ?? receivedData[1]}</td>
 			<td>{item.entries.map((i) => i.id).length}</td>
 		</tr>
 	);
