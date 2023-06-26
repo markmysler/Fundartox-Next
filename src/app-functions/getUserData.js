@@ -4,7 +4,7 @@ import { doc, getDoc } from "firebase/firestore";
 export default async function getUserData(id) {
 	const docRef = doc(firestore, "entries", id);
 	const docSnap = await getDoc(docRef);
-	const res = [];
+	let res = [];
 	if (docSnap.exists()) {
 		const data = docSnap.data();
 		for (const key in data) {
