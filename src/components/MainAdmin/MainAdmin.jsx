@@ -2,15 +2,20 @@ import { auth } from "@/firebase/clientApp";
 import { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import getUsersWithEntries from "@/app-functions/getUsersWithEntries";
+import style from "./admin.module.css";
+import icon from "../../images/icon-hs.png";
+import getUserData from "@/app-functions/getUserData";
+import TableRow from "./TableRow";
 
 export default function MainAdmin({ firestore }) {
 	const [user] = useAuthState(auth);
 	const [resData, setResData] = useState([]);
 	const [data, setData] = useState(null);
 
-	function getData() {
+	async function getData() {
 		if (user) {
-			setData(getUsersWithEntries(firestore));
+			const usersWithEntries = await getUsersWithEntries(firestore);
+			setData(usersWithEntries);
 		}
 	}
 	useEffect(() => {
@@ -19,31 +24,71 @@ export default function MainAdmin({ firestore }) {
 
 	useEffect(() => {
 		if (data !== null) {
-			data.then(function (res) {
-				setResData(res);
-			});
+			setResData(data);
 		}
 	}, [data]);
 
+	async function reciveData(id) {
+		const data = await getUserData(id);
+		return data;
+	}
+
 	return (
 		<>
-			<h1>Admin view</h1>
-			<div>
-				{resData.length > 0 ? (
-					resData.map((item) => (
-						<div key={item.displayName}>
-							<p>Usuario: {item.displayName}</p>
-							<p>
-								Entries: {item.entries.map((i) => i.id).length}
-							</p>
-							<p>
-								IDs: {item.entries.map((i) => i.id).join(" , ")}
-							</p>
-						</div>
-					))
-				) : (
-					<></>
-				)}
+			<div className={style.contenido}>
+				<div className={style.divH1}>
+					<h1>Encuestas enviadas</h1>
+				</div>
+				<div className={style.iconoEncuesta}>
+					<img
+						className={style.iconoHs}
+						src={icon.src}
+						alt="icon-hs"
+					/>
+					<h2>
+						Encuetas totales:{" "}
+						<span>
+							{resData
+								.map((i) => i.entries.length)
+								.reduce((partialSum, a) => partialSum + a, 0)}
+						</span>
+					</h2>
+				</div>
+				<div>
+					<div className={style.iconoEncuesta}>
+						<img
+							className={style.iconoHs}
+							src={icon.src}
+							alt="icon-hs"
+						/>
+						<h3>Encuestas por usuario:</h3>
+					</div>
+					<div className={style.divTable}>
+						<table className={style.table}>
+							<tbody>
+								<tr className={style.tr}>
+									<th></th>
+									<th>Nombre</th>
+									<th>Código del encuestador</th>
+									<th>Hospital</th>
+									<th>Encuestas enviadas</th>
+								</tr>
+								{resData.length > 0 ? (
+									resData.map((item, index) => (
+										<TableRow
+											key={item.displayName}
+											item={item}
+											index={index}
+											reciveData={reciveData}
+										/>
+									))
+								) : (
+									<></>
+								)}
+							</tbody>
+						</table>
+					</div>
+				</div>
 			</div>
 		</>
 	);

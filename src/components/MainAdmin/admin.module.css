@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400&display=swap");
+
+.isologo img {
+	padding: 1vw 0 0 1vw;
+	width: 5vw;
+}
+
+.contenido {
+	margin: 2vw;
+	font-family: "Inter", sans-serif;
+}
+
+/* H1 */
+
+.divH1 {
+	background-color: #2b5fa2;
+	width: max-content;
+	padding: 0.2vw 1vw;
+	border-radius: 10px;
+	color: #f3f3fe;
+	margin-bottom: 2vw;
+}
+.divH1 h1 {
+	font-size: 2vw;
+}
+
+.iconoEncuesta {
+	display: flex;
+	align-items: center;
+}
+.iconoEncuesta h2 {
+	font-size: 1.6vw;
+}
+.iconoEncuesta h3 {
+	font-size: 1.4vw;
+}
+
+.iconoHs {
+	width: 0.7vw;
+	height: min-content;
+	margin-right: 0.5vw;
+}
+
+.divTable {
+	margin-top: 1vw;
+	height: max-content;
+	overflow-y: auto;
+}
+
+.table {
+	margin: 0 auto;
+	border-collapse: collapse;
+	width: 100%;
+	padding: 2%;
+}
+
+.tr td,
+.tr th {
+	border: 1px solid black;
+	padding: 1vw 2vw;
+	text-align: start;
+	font-size: 1.1vw;
+}
+
+@media screen and (orientation: portrait) {
+	.divH1 h1 {
+		font-size: 3.3vw;
+	}
+	.iconoEncuesta h2 {
+		font-size: 2.8vw;
+	}
+	.iconoEncuesta h3 {
+		font-size: 2.5vw;
+	}
+	.tr td,
+	.tr th {
+		font-size: 2vw;
+	}
+}
