@@ -6,10 +6,12 @@ export default function TableRow({ item, index, reciveData }) {
 
 	useEffect(() => {
 		async function fetchData() {
-			const data = await reciveData(
-				item.entries[item.entries.length - 1].id
-			);
-			setReceivedData(data);
+			if (item.entries && item.entries.length > 0) {
+				const data = await reciveData(
+					item.entries[item.entries.length - 1].id
+				);
+				setReceivedData(data);
+			}
 		}
 		fetchData();
 	}, [item.entries]);
