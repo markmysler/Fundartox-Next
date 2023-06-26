@@ -78,8 +78,8 @@ export default function SectionEstablecimiento({ handleChange }) {
 					<option value="laRiojaHospitalRegionalEnriqueBarros">
 						La Rioja Hospital Regional Dr. Enrique Vera Barros
 					</option>
-					<option value="mendozaHospitalCentral">
-						Mendoza Hospital Central
+					<option value="mendozaHospitalLagomaggiore">
+						Mendoza Hospital Lagomaggiore
 					</option>
 					<option value="misionesHospitalEscuelaAgudosRamonMadariaga">
 						Misiones Hospital Escuela de Agudos Dr. Ramón Madariaga
