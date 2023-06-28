@@ -246,7 +246,10 @@ export default function FormularioComponent({ user }) {
 						Guardar progreso
 					</button>
 					{localData.length > 0 && (
-						<button onClick={() => handleLocalDataTransfer(e)}>
+						<button
+							className={style.btnEnviar}
+							onClick={() => handleLocalDataTransfer(e)}
+						>
 							Subir informacion local
 						</button>
 					)}

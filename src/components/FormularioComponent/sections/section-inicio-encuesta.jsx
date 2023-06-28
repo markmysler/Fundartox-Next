@@ -22,7 +22,10 @@ export default function SectionInicioEncuesta({ handleChange }) {
 					</label>
 					<input
 						className={style.inputText}
-						type="text"
+						type="number"
+						max={100000000}
+						min={0}
+						maxLength={8}
 						id="codigoEncuestador"
 						required
 						onChange={(e) => handleChange(e)}
