@@ -45,7 +45,7 @@ export default function SectionEstablecimiento({ handleChange }) {
 					<option value="cabaHospitalDonacionSantojanni">
 						CABA Hospital Donación Francisco Santojanni
 					</option>
-					<option value="catamarcaBospitalInterzonalSanJuanBautista">
+					<option value="catamarcaHospitalInterzonalSanJuanBautista">
 						Catamarca Hospital Interzonal San Juan Bautista
 					</option>
 					<option value="chacoospitalJulioPerrando">
