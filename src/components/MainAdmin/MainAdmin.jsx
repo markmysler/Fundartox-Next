@@ -46,7 +46,7 @@ export default function MainAdmin({ firestore }) {
 						alt="icon-hs"
 					/>
 					<h2>
-						Encuetas totales:{" "}
+						Encuestas totales:{" "}
 						<span>
 							{resData
 								.map((i) => i.entries.length)
